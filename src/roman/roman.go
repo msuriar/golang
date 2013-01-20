@@ -9,15 +9,16 @@ import (
 func DecimalToRoman(x int) (s string) {
   var outputs []string
   for x > 0 {
-    if x >= 5 {
-      outputs = append(outputs, string("V"))
-      x -= 5
-    } else if x >= 4 {
-      outputs = append(outputs, string("IV"))
-      x -= 4
-    } else {
-      outputs = append(outputs, string("I"))
-      x--
+    switch {
+      case x >= 5:
+        outputs = append(outputs, string("V"))
+        x -= 5
+      case x >= 4:
+        outputs = append(outputs, string("IV"))
+        x -= 4
+      default:
+        outputs = append(outputs, string("I"))
+        x--
     }
   }
   s = strings.Join(outputs, "")
