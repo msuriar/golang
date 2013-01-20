@@ -4,40 +4,35 @@ import (
 	"strings"
 )
 
-// import "fmt"
-
 type Numeral struct {
 	dec int
 	rom string
 }
 
-var numerals []Numeral
+var characters = map[rune]int{
+	'I': 1,
+	'V': 5,
+	'X': 10,
+	'L': 50,
+	'C': 100,
+	'D': 500,
+	'M': 1000,
+}
 
-var characters map[rune]int
-
-func init() {
-	numerals = append(numerals, Numeral{1000, string("M")})
-	numerals = append(numerals, Numeral{900, string("CM")})
-	numerals = append(numerals, Numeral{500, string("D")})
-	numerals = append(numerals, Numeral{400, string("CD")})
-	numerals = append(numerals, Numeral{100, string("C")})
-	numerals = append(numerals, Numeral{90, string("XC")})
-	numerals = append(numerals, Numeral{50, string("L")})
-	numerals = append(numerals, Numeral{40, string("XL")})
-	numerals = append(numerals, Numeral{10, string("X")})
-	numerals = append(numerals, Numeral{9, "IX"})
-	numerals = append(numerals, Numeral{5, string("V")})
-	numerals = append(numerals, Numeral{4, "IV"})
-	numerals = append(numerals, Numeral{1, string("I")})
-
-  characters = make(map[rune]int)
-  characters['I'] = 1
-  characters['V'] = 5
-  characters['X'] = 10
-  characters['L'] = 50
-  characters['C'] = 100
-  characters['D'] = 500
-  characters['M'] = 1000
+var numerals = []Numeral{
+	0:  Numeral{1000, string("M")},
+	1:  Numeral{900, string("CM")},
+	2:  Numeral{500, string("D")},
+	3:  Numeral{400, string("CD")},
+	4:  Numeral{100, string("C")},
+	5:  Numeral{90, string("XC")},
+	6:  Numeral{50, string("L")},
+	7:  Numeral{40, string("XL")},
+	8:  Numeral{10, string("X")},
+	9:  Numeral{9, "IX"},
+	10: Numeral{5, string("V")},
+	11: Numeral{4, "IV"},
+	12: Numeral{1, string("I")},
 }
 
 func DecimalToRoman(x int) (s string) {
@@ -55,20 +50,20 @@ func DecimalToRoman(x int) (s string) {
 }
 
 func RomanToDecimal(s string) (x int) {
-  x = 0
-  for i := 0 ; i < len(s) ; i++ {
-    current,next := characters[rune(s[i])],0
+	x = 0
+	for i := 0; i < len(s); i++ {
+		current, next := characters[rune(s[i])], 0
 
-    if i+1 < len(s) {
-      next = characters[rune(s[i+1])]
-    }
+		if i+1 < len(s) {
+			next = characters[rune(s[i+1])]
+		}
 
-    if current < next {
-      x += next - current
-      i++
-    } else {
-      x += current
-    }
-  }
-  return x
+		if current < next {
+			x += next - current
+			i++
+		} else {
+			x += current
+		}
+	}
+	return x
 }
