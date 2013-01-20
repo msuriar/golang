@@ -20,19 +20,19 @@ var characters = map[rune]int{
 }
 
 var numerals = []Numeral{
-	0:  Numeral{1000, string("M")},
-	1:  Numeral{900, string("CM")},
-	2:  Numeral{500, string("D")},
-	3:  Numeral{400, string("CD")},
-	4:  Numeral{100, string("C")},
-	5:  Numeral{90, string("XC")},
-	6:  Numeral{50, string("L")},
-	7:  Numeral{40, string("XL")},
-	8:  Numeral{10, string("X")},
+	0:  Numeral{1000, "M"},
+	1:  Numeral{900, "CM"},
+	2:  Numeral{500, "D"},
+	3:  Numeral{400, "CD"},
+	4:  Numeral{100, "C"},
+	5:  Numeral{90, "XC"},
+	6:  Numeral{50, "L"},
+	7:  Numeral{40, "XL"},
+	8:  Numeral{10, "X"},
 	9:  Numeral{9, "IX"},
-	10: Numeral{5, string("V")},
+	10: Numeral{5, "V"},
 	11: Numeral{4, "IV"},
-	12: Numeral{1, string("I")},
+	12: Numeral{1, "I"},
 }
 
 func DecimalToRoman(x int) (s string) {

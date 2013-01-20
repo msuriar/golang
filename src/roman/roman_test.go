@@ -6,10 +6,10 @@ var tests map[int]string
 
 func init() {
 	tests = map[int]string{
-		1:    string('I'),
+		1:    "I",
 		3:    "III",
 		4:    "IV",
-		5:    string('V'),
+		5:    "V",
 		8:    "VIII",
 		9:    "IX",
 		10:   "X",
