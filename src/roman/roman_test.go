@@ -10,6 +10,7 @@ func TestDecimalToRoman(t *testing.T) {
     5: string('V'),
     8: "VIII",
     9: "IX",
+    10: "X",
   }
   for in,out := range tests {
     if x:= DecimalToRoman(in); x != out {

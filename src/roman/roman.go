@@ -10,6 +10,9 @@ func DecimalToRoman(x int) (s string) {
 	var outputs []string
 	for x > 0 {
 		switch {
+    case x >= 10:
+      outputs = append(outputs, string("X"))
+      x -= 10
     case x >= 9:
       outputs = append(outputs, string("IX"))
       x -= 9
